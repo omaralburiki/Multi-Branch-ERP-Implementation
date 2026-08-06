@@ -12,7 +12,7 @@ Business-side coordination and delivery of a full ERP transformation across seve
 
 ## Business Context
 
-The organization operated a custom, in-house ERP across seven branches that had never been designed for operational control — it recorded invoices but did not enforce stock deduction, reservation, credit limits, or approval governance. This gap had already been quantified and diagnosed in a preceding Inventory Gap Analysis engagement, which established the business case for replacing the system entirely.
+The organization operated a custom, in-house ERP across seven branches that had never been designed for operational control it recorded invoices but did not enforce stock deduction, reservation, credit limits, or approval governance. This gap had already been quantified and diagnosed in a preceding Inventory Gap Analysis engagement, which established the business case for replacing the system entirely.
 
 ---
 
@@ -43,7 +43,7 @@ The prior system's absence of operational control created six confirmed failure 
 
 ## My Role
 
-**Business Systems Analyst** — served as the primary Business Systems Analyst supporting the business-side implementation of the ERP across seven branches, coordinating business analysis activities, implementation readiness, stakeholder collaboration, and operational process standardization from requirements through stabilization.
+**Business Systems Analyst** served as the primary Business Systems Analyst supporting the business-side implementation of the ERP across seven branches, coordinating business analysis activities, implementation readiness, stakeholder collaboration, and operational process standardization from requirements through stabilization.
 
 ---
 
@@ -76,7 +76,7 @@ ERP Implementation Coordination · Business Requirements Documentation (BRD) · 
 
 The complete project dossier including the six implementation phases, detailed business rules, order lifecycle logic, UAT findings, and evidence mapping is available at:
 
-**(.................)**
+**https://github.com/omaralburiki/Multi-Branch-ERP-Implementation/blob/main/docs/Project-Dossier.md**
 
 ---
 
