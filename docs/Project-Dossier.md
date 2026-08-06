@@ -35,7 +35,7 @@ The prior system's absence of operational control created six confirmed failure 
 - 7 branches, 150+ users.
 - 7 ERP functional modules: Finance, Inventory, Sales, Purchasing, CRM, HR, POS.
 - 10,000+ SKUs migrated.
-- Company-wide order, inventory, and credit control business rules — not limited to a single branch type.
+- Company-wide order, inventory, and credit control business rules not limited to a single branch type.
 
 ---
 
@@ -81,7 +81,7 @@ Module configuration covered all seven functional areas. Within this phase, the 
 Order approval is enforced through system checks rather than a manual sign-off chain credit-limit override requires Finance Manager approval, reservation release beyond auto-expiry requires supervisor approval with a mandatory reason code, and negative-stock override requires CFO approval. Each override path is logged immutably.
 
 **Returns approval workflow:**
-Returns require the original invoice and must fall within a 14-day window from invoice date. Return amounts up to 1,000 SAR require cashier initiation with supervisor approval; amounts from 1,001–10,000 SAR require branch manager approval. Refund method follows the original payment method — cash refund for cash payments, account credit for deferred/credit payments. Returned stock is classified as sellable (returned to warehouse) or damaged (flagged to a separate location). Every return event is logged immutably.
+Returns require the original invoice and must fall within a 14-day window from invoice date. Return amounts up to 1,000 SAR require cashier initiation with supervisor approval; amounts from 1,001–10,000 SAR require branch manager approval. Refund method follows the original payment method cash refund for cash payments, account credit for deferred/credit payments. Returned stock is classified as sellable (returned to warehouse) or damaged (flagged to a separate location). Every return event is logged immutably.
 
 **Order lifecycle:** Sales representative creates an order (including large orders of 100+ line items) → draft invoice generated → cashier processes payment → final invoice issued → warehouse picks and confirms via PDA barcode scan against the order. This flow was confirmed as the order lifecycle actually implemented in the new ERP.
 
@@ -214,7 +214,7 @@ flowchart TD
 |---|---|---|
 | Inventory Control | Coordinated by Business Systems Analyst | Inventory Department |
 | Finance & Operational Alignment | Coordinated by Business Systems Analyst | Finance Department |
-| Cross-Department Monitoring | — | Business Systems Analyst (ongoing) |
+| Cross-Department Monitoring | - | Business Systems Analyst (ongoing) |
 
 ### Before vs. After — Order & Credit Control (from UAT Findings)
 
