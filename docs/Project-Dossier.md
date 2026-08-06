@@ -49,7 +49,7 @@ Served as the primary Business Systems Analyst supporting the business-side impl
 
 ---
 
-## Phase 1 — Requirements & Design
+## Phase 1 Requirements & Design
 
 **Stakeholders:** Sales, Finance, Warehouse, Executive Management.
 
@@ -64,9 +64,9 @@ Requirements and functional specifications were formally documented as a Busines
 
 ---
 
-## Phase 2 — Configuration & Build
+## Phase 2 Configuration & Build
 
-Module configuration covered all seven functional areas. Within this phase, the company-wide order and inventory business rules were designed and built — rules gathered directly from stakeholders and confirmed as net-new requirements, since none existed in the prior system.
+Module configuration covered all seven functional areas. Within this phase, the company-wide order and inventory business rules were designed and built rules gathered directly from stakeholders and confirmed as net-new requirements, since none existed in the prior system.
 
 ### Business Rules & Order Lifecycle Logic
 
@@ -87,25 +87,25 @@ Returns require the original invoice and must fall within a 14-day window from i
 
 ---
 
-## Phase 3 — Testing & Validation
+## Phase 3 Testing & Validation
 
 UAT was conducted across the core order, inventory, and credit control workflows prior to go-live, directly validating the business rules designed in Phase 2 against the gaps identified during the earlier diagnostic engagement:
 
-- **Credit limit validation:** UAT confirmed the prior system had no per-customer credit limit assignment — users had to manually search each customer, generate an aging report, and review outstanding balances before deciding whether to proceed, with no automated alert for credit-limit breach or overdue terms. This finding directly validated the need for the automated credit check built in Phase 2.
+- **Credit limit validation:** UAT confirmed the prior system had no per-customer credit limit assignment users had to manually search each customer, generate an aging report, and review outstanding balances before deciding whether to proceed, with no automated alert for credit-limit breach or overdue terms. This finding directly validated the need for the automated credit check built in Phase 2.
 - **Soft stock reservation:** UAT confirmed the prior system did not reserve inventory or display available quantity at order creation, meaning orders could be entered with no visibility into actual stock. The new system's time-bound reservation and real-time availability display were validated against this gap.
-- **Batch/expiry tracking:** UAT confirmed the prior system had no batch tracking capability. The new process — recording expiry dates via barcode scan at goods receipt, enabling expiry-based rotation instead of random handling, with alerts generated six months ahead of expiry — was validated during this phase.
-- **Pricing:** UAT confirmed correct application of branch-type price lists (wholesale, supermarket, mini-market) at order entry. Customer-segment pricing tiers were out of scope for this project — that capability belongs to the later B2B E-commerce platform, not this ERP implementation.
+- **Batch/expiry tracking:** UAT confirmed the prior system had no batch tracking capability. The new process recording expiry dates via barcode scan at goods receipt, enabling expiry-based rotation instead of random handling, with alerts generated six months ahead of expiry — was validated during this phase.
+- **Pricing:** UAT confirmed correct application of branch-type price lists (wholesale, supermarket, mini-market) at order entry. Customer segment pricing tiers were out of scope for this project that capability belongs to the later B2B E-commerce platform, not this ERP implementation.
 
 **Defect tracking:** Defects identified during UAT were tracked through a ticketing system, combined with direct communication with the ERP solution provider for resolution.
 
 ---
 
-## Phase 4 — Deployment & Go-Live
+## Phase 4 Deployment & Go-Live
 
 Go-live surfaced operational issues consistent with a large-scale system transition:
 
 - System delays when entering large orders (100+ line items).
-- User errors, primarily attributable to users adapting to the new system and limited prior experience with it — not system defects.
+- User errors, primarily attributable to users adapting to the new system and limited prior experience with it not system defects.
 - Bottlenecks at the handoff points between sales, cashier, and warehouse functions during the initial rollout period.
 
 Go-live activities included master data migration coordination (10,000+ SKUs) and go-live support across all seven branches.
@@ -117,13 +117,13 @@ Go-live activities included master data migration coordination (10,000+ SKUs) an
 Following go-live, stabilization focused on enforcing the designed process rather than allowing manual shortcuts to persist:
 
 - Enforced the Sales → Cashier → Warehouse flow as the single path for order fulfillment, closing off informal workarounds that had carried over from the legacy process.
-- Mandated barcode scanning at pick confirmation, with the system rejecting scans of the wrong item or quantity — directly enforcing the deduction and stock accuracy rules designed in Phase 2.
+- Mandated barcode scanning at pick confirmation, with the system rejecting scans of the wrong item or quantity directly enforcing the deduction and stock accuracy rules designed in Phase 2.
 
 **My role during this phase:** On-site support and coordination with the ERP solution provider (Hypercare).
 
 ---
 
-## Phase 6 — Operational Optimization
+## Phase 6 Operational Optimization
 
 Following stabilization, day-to-day ownership of Inventory Control and Finance & Operational Alignment activities was transferred to the respective department owners in Inventory and Finance. My role shifted to performance monitoring and cross-department coordination rather than direct ownership of these areas going forward.
 
@@ -194,7 +194,7 @@ flowchart LR
     P4 --> P5[Phase 5: Stabilization and Support]
     P5 --> P6[Phase 6: Operational Optimization]
 ```
-*Reflects confirmed phase order only — no specific dates are documented and none are shown.*
+*Reflects confirmed phase order only no specific dates are documented and none are shown.*
 
 ### Stakeholder Map
 
@@ -231,7 +231,7 @@ flowchart TD
 - Supported successful ERP deployment across all seven branches.
 - Standardized key business processes across Finance, Inventory, Sales, Purchasing, CRM, HR, and POS.
 - Improved operational visibility across branches and improved alignment between business and IT.
-- Company-wide enforcement of credit limits, stock reservation, and negative-stock prevention — control mechanisms that did not exist in the prior system.
+- Company-wide enforcement of credit limits, stock reservation, and negative-stock prevention control mechanisms that did not exist in the prior system.
 - Transaction processing speed and barcode-based pick accuracy improved substantially following implementation, consistent with the project's original objectives. These results were not validated through a formal post-implementation audit.
 
 ---
