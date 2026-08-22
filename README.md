@@ -67,7 +67,7 @@ The prior system's absence of operational control created 6 confirmed failure co
 
 ## Skills Demonstrated
 
-ERP Implementation Coordination · Business Requirements Documentation (BRD) · Business Rules Design · UAT Coordination and Defect Management · Master Data Migration Coordination · Go-Live Support and Hypercare Coordination · Vendor Coordination · Cross-Functional Stakeholder Management
+ERP Implementation Coordination · Business Requirements Documentation (BRD) · Business Rules Design · UAT Coordination and Defect Management · Master Data Migration Coordination · Go-Live Support and Hypercare Coordination · Operational Readiness · Vendor Coordination · Cross-Functional Stakeholder Management
 
 ---
 
@@ -85,6 +85,7 @@ diagrams/
 ## Full Documentation
 
 The complete project dossier, including the 6 implementation phases, detailed business rules, order lifecycle logic, UAT findings, and evidence mapping, is available at:
+
 
 **https://github.com/omaralburiki/Multi-Branch-ERP-Implementation/blob/main/docs/Project-Dossier.md**
 
