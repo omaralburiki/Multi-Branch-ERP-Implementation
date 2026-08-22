@@ -112,9 +112,9 @@ Go-live activities included master data migration coordination (10,000+ SKUs) an
 
 ---
 
-## Phase 5: Stabilization & Support
+## Phase 5: Stabilization & Support (Operational Readiness)
 
-Following go-live, stabilization focused on enforcing the designed process rather than allowing manual shortcuts to persist:
+Following go-live, stabilization focused on enforcing the designed process rather than allowing manual shortcuts to persist. This phase covered the operational readiness activities that prepared each branch to run the new system as its single working process, not as a parallel option alongside old habits.
 
 - Enforced the Sales → Cashier → Warehouse flow as the single path for order fulfillment, closing off informal workarounds that had carried over from the legacy process.
 - Mandated barcode scanning at pick confirmation, with the system rejecting scans of the wrong item or quantity, directly enforcing the deduction and stock accuracy rules designed in Phase 2.
@@ -125,7 +125,7 @@ Following go-live, stabilization focused on enforcing the designed process rathe
 
 ## Phase 6: Operational Optimization
 
-Following stabilization, day-to-day ownership of Inventory Control and Finance & Operational Alignment activities was transferred to the respective department owners in Inventory and Finance. My role shifted to performance monitoring and cross-department coordination rather than direct ownership of these areas going forward.
+Following stabilization, day-to-day ownership of Inventory Control and Finance & Operational Alignment activities was transferred to the respective department owners in Inventory and Finance, completing the operational readiness cycle from go-live support through to sustainable, department-owned operation. My role shifted to performance monitoring and cross-department coordination rather than direct ownership of these areas going forward.
 
 ---
 
@@ -244,6 +244,8 @@ flowchart TD
 - UAT Coordination and Defect Management
 - Master Data Migration Coordination
 - Go-Live Support and Hypercare Coordination
+- Operational Readiness (post-Go-Live process stabilization and department handoff)
 - Vendor Coordination
 - Cross-functional Stakeholder Management (Sales, Finance, Warehouse, Executive Management)
 
+---
