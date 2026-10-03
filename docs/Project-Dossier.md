@@ -83,7 +83,7 @@ Order approval is enforced through system checks rather than a manual sign-off c
 **Returns approval workflow:**
 Returns require the original invoice and must fall within a 14-day window from invoice date. Return amounts up to 1,000 SAR require cashier initiation with supervisor approval; amounts from 1,001–10,000 SAR require branch manager approval. Refund method follows the original payment method: cash refund for cash payments, account credit for deferred/credit payments. Returned stock is classified as sellable (returned to warehouse) or damaged (flagged to a separate location). Every return event is logged immutably.
 
-**Order lifecycle:** Sales representative creates an order (including large orders of 100+ line items) → draft invoice generated → cashier processes payment → final invoice issued → warehouse picks and confirms via PDA barcode scan against the order. This flow was confirmed as the order lifecycle actually implemented in the new ERP.
+**Order lifecycle:** Sales representative creates an order (including large orders of 100+ line items) → draft invoice generated → cashier processes payment → final invoice issued → warehouse picks and confirms via PDA barcode scan against the order.
 
 ---
 
@@ -130,8 +130,6 @@ Following stabilization, day-to-day ownership of Inventory Control and Finance &
 ---
 
 ## Visual Documentation
-
-*Diagrams below reflect only rules, flows, and roles confirmed in this dossier's Evidence Mapping.*
 
 ### Business Process Flow: TO-BE Order Lifecycle
 
@@ -194,7 +192,6 @@ flowchart LR
     P4 --> P5[Phase 5: Stabilization and Support]
     P5 --> P6[Phase 6: Operational Optimization]
 ```
-*Reflects confirmed phase order only. No specific dates are documented and none are shown.*
 
 ### Stakeholder Map
 
