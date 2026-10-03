@@ -22,7 +22,7 @@
 2. Business Context and Problem Statement
 3. Business Objectives
 4. Scope
-5. Stakeholders and RACI
+5. Stakeholders and Responsibilities 
 6. Current State Summary (AS-IS)
 7. Business Requirements
 8. Functional Requirements
@@ -31,8 +31,7 @@
 11. Approval Governance Matrix
 12. Audit and Traceability Considerations
 13. Assumptions and Constraints
-14. Requirements Traceability and UAT Validation
-15. Document Governance
+14. Key UAT Validation
 
 ---
 
@@ -92,7 +91,7 @@ These failures directly matched the root causes identified in the earlier gap an
 
 ---
 
-## 5. Stakeholders and RACI
+## 5. Stakeholders and Responsibilities
 
 | Stakeholder | Role | Requirements Involvement |
 |---|---|---|
@@ -218,7 +217,7 @@ Every override path defined in Section 11 requires immutable logging, capturing 
 
 ---
 
-## 14. Requirements Traceability and UAT Validation
+## 14. Key UAT Validation
 
 | Requirement | AS-IS Gap Validated Against | UAT Outcome |
 |---|---|---|
@@ -230,7 +229,4 @@ Every override path defined in Section 11 requires immutable logging, capturing 
 Defects identified during UAT were tracked through a ticketing system, combined with direct communication with the ERP solution provider for resolution.
 
 ---
-
-## 15. Document Governance
-
-Requirements in this document were gathered and verified directly with the stakeholders listed in Section 5, then finalized for technical handoff to the ERP solution provider. This finalization was based on direct stakeholder verification rather than a formal signature-based approval gate. Final acceptance of delivered functionality was confirmed through the UAT process described in Section 14, with defects tracked and resolved prior to go-live.
+ approval gate. Final acceptance of delivered functionality was confirmed through the UAT process described in Section 14, with defects tracked and resolved prior to go-live.
