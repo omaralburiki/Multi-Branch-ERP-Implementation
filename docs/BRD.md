@@ -1,6 +1,8 @@
 # Business Requirements Document (BRD)
 ## Multi-Branch ERP Implementation
 
+> **Note on this document:** This is a representative version of the BRD, rebuilt for this portfolio from the project records. The original belongs to the company and is not published. Every requirement, rule, and figure here matches the project dossier; nothing has been added.
+
 ---
 
 ## Document Control
@@ -8,11 +10,11 @@
 | Field | Value |
 |---|---|
 | Document Title | Business Requirements Document, Multi-Branch ERP Implementation |
-| Prepared By | Omar Ahmed Al-Buriki, Business Systems Analyst |
+| Prepared By | Omar Ahmed Al-Buriki, ERP Business Analyst |
 | Company | Mohd. Saeed Balbid Company |
 | Project Duration | Jun 2020 to Aug 2021 |
-| Related Prior Engagement | Inventory Gap Analysis & ERP Readiness (see companion dossier) |
-| Document Status | Representative sample, reconstructed from project dossier |
+| Related Prior Engagement | [Inventory Gap Analysis & ERP Readiness](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness) |
+| Document Status | Representative version (see note above) |
 
 ---
 
@@ -32,6 +34,7 @@
 12. Audit and Traceability Considerations
 13. Assumptions and Constraints
 14. Key UAT Validation
+15. Document Governance
 
 ---
 
@@ -56,7 +59,7 @@ The prior system's absence of operational control created 6 confirmed failure co
 | F-05 | No approval governance with audit trail |
 | F-06 | No reliable financial reporting |
 
-These failures directly matched the root causes identified in the earlier gap analysis and required a full system replacement, not a patch.
+These failures were consistent with the root causes found in the earlier gap analysis and required a full system replacement, not a patch.
 
 ---
 
@@ -100,7 +103,7 @@ These failures directly matched the root causes identified in the earlier gap an
 | Warehouse | Requirement source | Stock reservation, deduction, goods receipt, batch/expiry tracking |
 | Executive Management | Sponsor | Business direction, negative-stock override tier (CFO-level) |
 | ERP Solution Provider | Technical delivery | Configuration and build against approved requirements; defect resolution |
-| Business Systems Analyst (Omar) | Requirements owner | Gathered and verified requirements with all functions above; finalized BRD content for technical handoff; coordinated UAT against each requirement |
+| ERP Business Analyst (Omar) | Requirements owner | Gathered and verified requirements with all functions above; finalized BRD content for technical handoff; coordinated UAT against each requirement |
 
 ---
 
@@ -229,4 +232,7 @@ Every override path defined in Section 11 requires immutable logging, capturing 
 Defects identified during UAT were tracked through a ticketing system, combined with direct communication with the ERP solution provider for resolution.
 
 ---
- approval gate. Final acceptance of delivered functionality was confirmed through the UAT process described in Section 14, with defects tracked and resolved prior to go-live.
+
+## 15. Document Governance
+
+Requirements in this document were gathered and verified directly with the stakeholders listed in Section 5, then finalized for technical handoff to the ERP solution provider. This was based on direct stakeholder verification, not a formal signature-based approval gate. Final acceptance of delivered functionality was confirmed through the UAT process described in Section 14, with defects tracked and resolved before go-live.
