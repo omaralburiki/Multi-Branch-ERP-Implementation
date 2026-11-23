@@ -2,7 +2,7 @@
 
 Replacing a 7-branch distributor's legacy system with a full ERP, and designing the order, stock, and credit rules the old system never had.
 
-**Mohd. Saeed Balbid Company · Jun 2020 – Aug 2021 · Role: ERP Business Analyst**
+**FMCG retailer and wholesaler, Saudi Arabia · Jun 2020 – Aug 2021 · Role: ERP Business Analyst**
 
 ## Why the system had to change
 
@@ -25,7 +25,7 @@ I ran UAT against each rule, trained users, coordinated master data migration, s
 | Soft stock reservation | Holds stock against a draft order for a set period, then releases it | Supervisor, with a reason code |
 | Deduction at pick | Deducts stock only when the warehouse confirms the pick by barcode scan | Nobody |
 | Negative-stock prevention | Rejects any transaction that would take stock below zero | CFO, logged and timestamped |
-| Returns approval | Original invoice and a 14-day window required; approval depends on the amount | Supervisor up to 1,000 SAR, branch manager from 1,001 to 10,000 SAR |
+| Returns approval | Original invoice and a 14-day window required; approval depends on the amount | Supervisor for the lower tier, branch manager for the higher tier |
 
 None of these existed in the old system, and every override is logged.
 
@@ -39,9 +39,9 @@ The ERP went live in all 7 branches, and credit limits, stock reservation, and n
 
 ## Related projects
 
-This is phase 2 of the company's ERP work. Phase 1, the [Inventory Gap Analysis & ERP Readiness](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness), built the business case. This ERP later became the source of truth for stock and prices on the [B2B E-commerce platform](https://github.com/omaralburiki/B2B-E-commerce-Implementation).
+This is part 2 of the company's ERP work. Part 1, the [Inventory Gap Analysis & ERP Readiness](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness), built the business case. This ERP later became the source of truth for stock and prices on the [B2B E-commerce platform](https://github.com/omaralburiki/B2B-E-commerce-Implementation).
 
 ## Documents
 
-- [Project Dossier](docs/Project-Dossier.md): the 6 implementation phases, order lifecycle, UAT findings, and diagrams.
+- [Full case study](docs/Project-Dossier.md): the 6 implementation phases, order lifecycle, UAT findings, and diagrams.
 - [BRD](docs/BRD.md): business and functional requirements, rule specifications, and the approval matrix. This is a representative version; the original belongs to the company.
