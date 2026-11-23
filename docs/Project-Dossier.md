@@ -10,13 +10,13 @@ Business-side coordination and delivery of a full ERP transformation across 7 br
 
 ## Business Context
 
-The organization operated a custom, in-house ERP across 7 branches that had never been designed for operational control. It recorded invoices but did not enforce stock deduction, reservation, credit limits, or approval governance. This gap had already been quantified and diagnosed in the preceding Inventory Gap Analysis engagement (see: Inventory Gap Analysis & ERP Readiness), which established the business case for replacing the system entirely.
+The organization operated a custom, in-house ERP across 7 branches that had never been designed for operational control. It recorded invoices but did not enforce stock deduction, reservation, credit limits, or approval governance. This gap had already been quantified and diagnosed in the preceding Inventory Gap Analysis engagement ([Inventory Gap Analysis & ERP Readiness](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness)), which established the business case for replacing the system entirely.
 
 ---
 
 ## Business Problem
 
-The prior system's absence of operational control created 6 confirmed failure conditions: no real-time inventory synchronization, no stock reservation logic, no negative-stock prevention, no credit limit enforcement, no approval governance with audit trail, and no reliable financial reporting. These failures directly matched the root causes identified in the earlier gap analysis and required a full system replacement, not a patch.
+The prior system's absence of operational control created 6 confirmed failure conditions: no real-time inventory synchronization, no stock reservation logic, no negative-stock prevention, no credit limit enforcement, no approval governance with audit trail, and no reliable financial reporting. These failures were consistent with the root causes found in the earlier gap analysis and required a full system replacement, not a patch.
 
 ---
 
@@ -41,11 +41,11 @@ The prior system's absence of operational control created 6 confirmed failure co
 
 ## My Role
 
-**Title:** Business Systems Analyst
+**Role:** ERP Business Analyst
 **Company:** Mohd. Saeed Balbid Company
-**Duration:** Jun 2020 – Aug 2021
+**Project period:** Jun 2020 – Aug 2021
 
-Served as the primary Business Systems Analyst supporting the business-side implementation of the ERP across 7 branches, coordinating business analysis activities, implementation readiness, stakeholder collaboration, and operational process standardization from requirements through stabilization.
+I was the main business analyst on the business side of the rollout, from requirements through stabilization. I gathered requirements, wrote the BRD and functional requirements, designed the business rules, ran UAT against each rule, trained users, coordinated master data migration, supported go-live, and provided on-site hypercare. The ERP solution provider configured the system. Approval for overrides and for go-live stayed with Finance and management. This project was phase 2 of the company's ERP work, following the [Inventory Gap Analysis & ERP Readiness](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness).
 
 ---
 
@@ -66,7 +66,7 @@ Requirements and functional specifications were formally documented as a Busines
 
 ## Phase 2: Configuration & Build
 
-Module configuration covered all 7 functional areas. Within this phase, the company-wide order and inventory business rules were designed and built, rules gathered directly from stakeholders and confirmed as net-new requirements, since none existed in the prior system.
+The ERP solution provider configured all 7 modules against the BRD. In this phase I designed the company-wide order and inventory rules with the stakeholders who would use them, and the vendor built them into the system. None of these rules existed in the old system.
 
 ### Business Rules & Order Lifecycle Logic
 
@@ -209,9 +209,9 @@ flowchart TD
 
 | Area | During Implementation | Post-Stabilization Owner |
 |---|---|---|
-| Inventory Control | Coordinated by Business Systems Analyst | Inventory Department |
-| Finance & Operational Alignment | Coordinated by Business Systems Analyst | Finance Department |
-| Cross-Department Monitoring | N/A | Business Systems Analyst (ongoing) |
+| Inventory Control | Coordinated by ERP Business Analyst | Inventory Department |
+| Finance & Operational Alignment | Coordinated by ERP Business Analyst | Finance Department |
+| Cross-Department Monitoring | N/A | ERP Business Analyst (ongoing) |
 
 ### Before vs. After: Order & Credit Control (from UAT Findings)
 
@@ -229,7 +229,7 @@ flowchart TD
 - Standardized key business processes across Finance, Inventory, Sales, Purchasing, CRM, HR, and POS.
 - Improved operational visibility across branches and improved alignment between business and IT.
 - Company-wide enforcement of credit limits, stock reservation, and negative-stock prevention, control mechanisms that did not exist in the prior system.
-- Transaction processing speed and barcode-based pick accuracy improved substantially following implementation, consistent with the project's original objectives. These results were not validated through a formal post-implementation audit.
+- Transaction processing and barcode pick accuracy improved after go-live, based on day-to-day observation. They were not measured in a formal post-implementation audit.
 
 ---
 
@@ -241,6 +241,7 @@ flowchart TD
 - UAT Coordination and Defect Management
 - Master Data Migration Coordination
 - Go-Live Support and Hypercare Coordination
+- End-User Training
 - Operational Readiness (post-Go-Live process stabilization and department handoff)
 - Vendor Coordination
 - Cross-functional Stakeholder Management (Sales, Finance, Warehouse, Executive Management)
