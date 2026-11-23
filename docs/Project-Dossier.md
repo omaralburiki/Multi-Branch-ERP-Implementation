@@ -1,137 +1,41 @@
 # Multi-Branch ERP Implementation
 
----
+**Case study** · FMCG retailer and wholesaler, Saudi Arabia · Jun 2020 – Aug 2021 · Role: ERP Business Analyst
 
-## Overview
+This is the full write-up behind the [README](../README.md). It follows the rollout through its six phases, from requirements to handing the new processes over to the departments that run them. The detailed requirements and rule specifications are in the [BRD](BRD.md).
 
-Business-side coordination and delivery of a full ERP transformation across 7 branches, replacing a custom in-house system that functioned only as an invoicing recorder with no operational control logic. The implementation covered 7 functional modules, 150+ users, and included the design and enforcement of company-wide order, inventory, and credit control rules that did not exist in the prior system.
+## Starting point
 
----
+The company ran a custom in-house system across its 7 branches. It recorded invoices but did not deduct stock, reserve it, check credit limits, or control approvals. The [gap analysis](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness) done before this project had already measured the problem. In system terms it came down to 6 failure conditions: no real-time inventory synchronization, no stock reservation, no negative-stock prevention, no credit limit enforcement, no approval governance with an audit trail, and no reliable financial reporting. These were consistent with the root causes found in the gap analysis, and they called for replacing the system, not patching it.
 
-## Business Context
+The goals were to move to an integrated ERP covering finance, inventory, sales, purchasing, HR, CRM, and POS; to remove phantom inventory and keep stock accurate in real time; to stop negative-stock sales and enforce credit limits automatically; to digitize wholesale order fulfillment; and to put procurement and returns under structured control with a full audit trail.
 
-The organization operated a custom, in-house ERP across 7 branches that had never been designed for operational control. It recorded invoices but did not enforce stock deduction, reservation, credit limits, or approval governance. This gap had already been quantified and diagnosed in the preceding Inventory Gap Analysis engagement ([Inventory Gap Analysis & ERP Readiness](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness)), which established the business case for replacing the system entirely.
+The scope covered 7 branches, 150+ users, 7 modules, the migration of more than 10,000 SKUs, and rules that applied company-wide, not to one branch type.
 
----
+## My role
 
-## Business Problem
+I was the main business analyst on the business side of the rollout, from requirements through stabilization. I gathered requirements, wrote the BRD and functional requirements, designed the business rules, ran UAT against each rule, trained users, coordinated master data migration, supported go-live, and provided on-site hypercare. The ERP solution provider configured the system. Approval for overrides and for go-live stayed with Finance and management.
 
-The prior system's absence of operational control created 6 confirmed failure conditions: no real-time inventory synchronization, no stock reservation logic, no negative-stock prevention, no credit limit enforcement, no approval governance with audit trail, and no reliable financial reporting. These failures were consistent with the root causes found in the earlier gap analysis and required a full system replacement, not a patch.
+## Phase 1: Requirements and design
 
----
+I gathered requirements directly from Sales, Finance, Warehouse, and Executive Management. Several needs had no equivalent in the old system: separate price lists for wholesale, supermarket, and mini-market branches; stock held centrally and per branch, with tracked transfers between them; batch and expiry tracking; and a purchasing workflow that compares supplier quotations before a purchase order is issued.
 
-## Objectives
+I documented these in the BRD and functional requirements. That documentation was the basis for the vendor's configuration and, later, for the UAT acceptance criteria.
 
-- Replace the legacy system with a fully integrated ERP covering finance, inventory, sales, purchasing, HR, CRM, and POS.
-- Eliminate phantom inventory and enforce real-time stock accuracy.
-- Stop negative-stock selling and enforce credit limits automatically.
-- Digitize the wholesale order fulfillment journey.
-- Establish structured procurement and returns governance with a full audit trail.
+## Phase 2: Configuration and the business rules
 
----
+The ERP solution provider configured all 7 modules against the BRD. In this phase I designed the company-wide order and inventory rules with the stakeholders who would work under them, and the vendor built them into the system. None of them existed before.
 
-## Project Scope
+- **Hard stock block.** An order cannot exceed available stock; the system shows the quantity that is available.
+- **Credit limit check.** An order is blocked when the customer's balance is over the approved limit. The Finance Manager can override it with a logged reason.
+- **Soft stock reservation.** Stock is held against a draft order for a set period, then released automatically, or earlier by a supervisor with a reason code.
+- **Deduction at pick.** Stock is deducted when the warehouse confirms the pick by barcode scan, not when the order is created.
+- **Negative-stock prevention.** Any transaction that would take stock below zero is rejected. Only the CFO can override it, and the override is logged.
+- **Returns approval.** A return needs the original invoice and must fall within 14 days of the invoice date. The approval level depends on the amount, the refund follows the original payment method, and returned stock is classed as sellable or damaged.
 
-- 7 branches, 150+ users.
-- 7 ERP functional modules: Finance, Inventory, Sales, Purchasing, CRM, HR, POS.
-- 10,000+ SKUs migrated.
-- Company-wide order, inventory, and credit control business rules, not limited to a single branch type.
+Every override is logged with the user, the reason, and the time.
 
----
-
-## My Role
-
-**Role:** ERP Business Analyst
-**Company:** Mohd. Saeed Balbid Company
-**Project period:** Jun 2020 – Aug 2021
-
-I was the main business analyst on the business side of the rollout, from requirements through stabilization. I gathered requirements, wrote the BRD and functional requirements, designed the business rules, ran UAT against each rule, trained users, coordinated master data migration, supported go-live, and provided on-site hypercare. The ERP solution provider configured the system. Approval for overrides and for go-live stayed with Finance and management. This project was phase 2 of the company's ERP work, following the [Inventory Gap Analysis & ERP Readiness](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness).
-
----
-
-## Phase 1: Requirements & Design
-
-**Stakeholders:** Sales, Finance, Warehouse, Executive Management.
-
-Requirements were gathered directly from these functions and translated into business requirements that had to be built into the new ERP, since none of the following existed in the prior system:
-
-- **Branch-type pricing**: distinct price lists for wholesale, supermarket, and mini-market branches.
-- **Central and branch-level warehousing**: inventory managed both centrally and per branch, with transfers tracked between them.
-- **Batch and expiry tracking**: a capability entirely absent from the legacy system.
-- **Structured purchasing workflow**: including supplier quotation comparison ahead of purchase order issuance.
-
-Requirements and functional specifications were formally documented as a Business Requirements Document (BRD) and functional requirements, forming the basis for vendor configuration and later UAT acceptance criteria.
-
----
-
-## Phase 2: Configuration & Build
-
-The ERP solution provider configured all 7 modules against the BRD. In this phase I designed the company-wide order and inventory rules with the stakeholders who would use them, and the vendor built them into the system. None of these rules existed in the old system.
-
-### Business Rules & Order Lifecycle Logic
-
-**Order and stock control rules:**
-- **Hard stock block**: an order cannot be created if requested quantity exceeds available stock; the system returns the actual available quantity instead of allowing the order to proceed.
-- **Credit limit check**: an order is blocked at the point of sale if the customer's outstanding balance exceeds their approved credit limit; override requires Finance Manager approval with a mandatory logged reason.
-- **Soft stock reservation**: confirmed stock is reserved against a draft order for a defined hold period; if not converted to a confirmed order within that window, the reservation is automatically released back to the available pool, or can be manually released by a supervisor with a mandatory reason code and immutable log entry.
-- **Deduction at pick confirmation**: physical stock is deducted only once a warehouse pick is confirmed via barcode scan, not at order creation, keeping system and physical stock aligned.
-- **Absolute negative-stock prevention**: a transaction that would drive available stock below zero is rejected at the system level; override requires CFO-level approval, logged and timestamped.
-
-**Order approval governance:**
-Order approval is enforced through system checks rather than a manual sign-off chain. Credit-limit override requires Finance Manager approval, reservation release beyond auto-expiry requires supervisor approval with a mandatory reason code, and negative-stock override requires CFO approval. Each override path is logged immutably.
-
-**Returns approval workflow:**
-Returns require the original invoice and must fall within a 14-day window from invoice date. Return amounts up to 1,000 SAR require cashier initiation with supervisor approval; amounts from 1,001–10,000 SAR require branch manager approval. Refund method follows the original payment method: cash refund for cash payments, account credit for deferred/credit payments. Returned stock is classified as sellable (returned to warehouse) or damaged (flagged to a separate location). Every return event is logged immutably.
-
-**Order lifecycle:** Sales representative creates an order (including large orders of 100+ line items) → draft invoice generated → cashier processes payment → final invoice issued → warehouse picks and confirms via PDA barcode scan against the order.
-
----
-
-## Phase 3: Testing & Validation
-
-UAT was conducted across the core order, inventory, and credit control workflows prior to go-live, directly validating the business rules designed in Phase 2 against the gaps identified during the earlier diagnostic engagement:
-
-- **Credit limit validation:** UAT confirmed the prior system had no per-customer credit limit assignment. Users had to manually search each customer, generate an aging report, and review outstanding balances before deciding whether to proceed, with no automated alert for credit-limit breach or overdue terms. This finding directly validated the need for the automated credit check built in Phase 2.
-- **Soft stock reservation:** UAT confirmed the prior system did not reserve inventory or display available quantity at order creation, meaning orders could be entered with no visibility into actual stock. The new system's time-bound reservation and real-time availability display were validated against this gap.
-- **Batch/expiry tracking:** UAT confirmed the prior system had no batch tracking capability. The new process, recording expiry dates via barcode scan at goods receipt, enabling expiry-based rotation instead of random handling, with alerts generated 6 months ahead of expiry, was validated during this phase.
-- **Pricing:** UAT confirmed correct application of branch-type price lists (wholesale, supermarket, mini-market) at order entry. Customer-segment pricing tiers were out of scope for this project. That capability belongs to the later B2B E-commerce platform, not this ERP implementation.
-
-**Defect tracking:** Defects identified during UAT were tracked through a ticketing system, combined with direct communication with the ERP solution provider for resolution.
-
----
-
-## Phase 4: Deployment & Go-Live
-
-Go-live surfaced operational issues consistent with a large-scale system transition:
-
-- System delays when entering large orders (100+ line items).
-- User errors, primarily attributable to users adapting to the new system and limited prior experience with it, not system defects.
-- Bottlenecks at the handoff points between sales, cashier, and warehouse functions during the initial rollout period.
-
-Go-live activities included master data migration coordination (10,000+ SKUs) and go-live support across all 7 branches.
-
----
-
-## Phase 5: Stabilization & Support (Operational Readiness)
-
-Following go-live, stabilization focused on enforcing the designed process rather than allowing manual shortcuts to persist. This phase covered the operational readiness activities that prepared each branch to run the new system as its single working process, not as a parallel option alongside old habits.
-
-- Enforced the Sales → Cashier → Warehouse flow as the single path for order fulfillment, closing off informal workarounds that had carried over from the legacy process.
-- Mandated barcode scanning at pick confirmation, with the system rejecting scans of the wrong item or quantity, directly enforcing the deduction and stock accuracy rules designed in Phase 2.
-
-**My role during this phase:** On-site support and coordination with the ERP solution provider (Hypercare).
-
----
-
-## Phase 6: Operational Optimization
-
-Following stabilization, day-to-day ownership of Inventory Control and Finance & Operational Alignment activities was transferred to the respective department owners in Inventory and Finance, completing the operational readiness cycle from go-live support through to sustainable, department-owned operation. My role shifted to performance monitoring and cross-department coordination rather than direct ownership of these areas going forward.
-
----
-
-## Visual Documentation
-
-### Business Process Flow: TO-BE Order Lifecycle
+The order lifecycle became: the sales representative creates the order, including large orders of 100+ lines; a draft invoice is generated; the cashier takes payment; the final invoice is issued; and the warehouse picks and confirms the order with a PDA scan.
 
 ```mermaid
 flowchart LR
@@ -150,8 +54,6 @@ flowchart LR
     J --> K[Transaction Complete]
 ```
 
-### Business Rule Decision Flow: Returns Approval Workflow
-
 ```mermaid
 flowchart TD
     A[Return Request] --> B{Invoice Present?}
@@ -159,8 +61,8 @@ flowchart TD
     B -->|Yes| C{Within 14 Days?}
     C -->|No| C1[Blocked - Window Expired]
     C -->|Yes| D{Return Amount}
-    D -->|Up to 1,000 SAR| E[Cashier + Supervisor Approval]
-    D -->|1,001-10,000 SAR| F[Branch Manager Approval]
+    D -->|Lower tier| E[Cashier + Supervisor Approval]
+    D -->|Higher tier| F[Branch Manager Approval]
     E --> G{Stock Condition}
     F --> G
     G -->|Sellable| H[Returned to Warehouse]
@@ -171,7 +73,51 @@ flowchart TD
     J -->|Credit/Deferred| L[Account Credit]
 ```
 
-### ERP Functional Flow
+## Phase 3: Testing
+
+I ran UAT on the core order, inventory, and credit workflows before go-live, testing each rule against the gap it was meant to close.
+
+- **Credit control.** The old system had no credit limit per customer. Staff searched each customer by hand and read an aging report before deciding, with no alert for an exceeded limit or overdue terms. UAT confirmed the automated check replaced that.
+- **Stock reservation.** The old system showed no available quantity at order entry and reserved nothing. UAT confirmed the time-bound reservation and the real-time availability display.
+- **Batch and expiry.** The old system had no batch tracking. UAT confirmed that expiry dates are captured by scan at goods receipt, that stock can be rotated by expiry, and that an alert is raised 6 months before expiry.
+- **Pricing.** UAT confirmed the right branch-type price list at order entry. Customer-segment pricing was out of scope; it came later with the B2B platform.
+
+Defects went into a ticketing system, and I followed them up directly with the ERP solution provider.
+
+| Capability | Old system | New ERP |
+|---|---|---|
+| Credit control | Manual customer search and aging report, no alerts | Automated credit check, Finance Manager override with log |
+| Stock at order entry | No reservation, no availability shown | Real-time availability, time-bound reservation |
+| Batch and expiry | Not supported | Expiry captured by scan at receipt, 6-month alert |
+
+## Phase 4: Go-live
+
+Go-live brought the problems you would expect in a change this size. Orders with 100+ lines were slow to enter, users made mistakes while they learned the new system, and work backed up at the handoffs between sales, cashier, and warehouse. Around go-live I coordinated the migration of more than 10,000 SKUs and supported all 7 branches.
+
+## Phase 5: Stabilization
+
+The aim was to make the new process the only process, so old shortcuts did not survive next to it. I enforced the Sales, Cashier, Warehouse flow as the single path for an order, and made barcode scanning mandatory at picking, with the system rejecting the wrong item or quantity. I was on site for hypercare and worked with the ERP solution provider on the issues that came up.
+
+## Phase 6: Handover to departments
+
+Once things were stable, day-to-day ownership of inventory control and of finance and operational alignment moved to the Inventory and Finance departments. My role became performance monitoring and coordination between departments.
+
+| Area | During the rollout | After stabilization |
+|---|---|---|
+| Inventory control | Coordinated by me | Inventory Department |
+| Finance and operational alignment | Coordinated by me | Finance Department |
+| Cross-department monitoring | Not applicable | Me (ongoing) |
+
+```mermaid
+flowchart LR
+    P1[Phase 1: Requirements and Design] --> P2[Phase 2: Configuration and Build]
+    P2 --> P3[Phase 3: Testing]
+    P3 --> P4[Phase 4: Go-Live]
+    P4 --> P5[Phase 5: Stabilization]
+    P5 --> P6[Phase 6: Handover to Departments]
+```
+
+## How the modules connect
 
 ```mermaid
 flowchart LR
@@ -181,19 +127,6 @@ flowchart LR
     Sales --> Finance
     Finance --> Reporting[Operational Visibility]
 ```
-
-### Implementation Phase Sequence
-
-```mermaid
-flowchart LR
-    P1[Phase 1: Requirements and Design] --> P2[Phase 2: Configuration and Build]
-    P2 --> P3[Phase 3: Testing and Validation]
-    P3 --> P4[Phase 4: Deployment and Go-Live]
-    P4 --> P5[Phase 5: Stabilization and Support]
-    P5 --> P6[Phase 6: Operational Optimization]
-```
-
-### Stakeholder Map
 
 ```mermaid
 flowchart TD
@@ -205,45 +138,8 @@ flowchart TD
     Center --- V[ERP Solution Provider]
 ```
 
-### Process Ownership Matrix: Post-Stabilization
+## Outcome
 
-| Area | During Implementation | Post-Stabilization Owner |
-|---|---|---|
-| Inventory Control | Coordinated by ERP Business Analyst | Inventory Department |
-| Finance & Operational Alignment | Coordinated by ERP Business Analyst | Finance Department |
-| Cross-Department Monitoring | N/A | ERP Business Analyst (ongoing) |
+The ERP went live in all 7 branches, with the same processes across finance, inventory, sales, purchasing, CRM, HR, and POS. Credit limits, stock reservation, and negative-stock prevention were enforced company-wide for the first time. Transaction processing and barcode pick accuracy improved after go-live, based on day-to-day observation; they were not measured in a formal post-implementation audit.
 
-### Before vs. After: Order & Credit Control (from UAT Findings)
-
-| Capability | AS-IS (Prior System) | TO-BE (New ERP) |
-|---|---|---|
-| Credit Control | Manual customer search + aging report review, no alerts | Automated credit limit check, Finance Manager override with log |
-| Stock Visibility at Order Entry | No reservation, no availability shown | Real-time availability display, time-bound reservation |
-| Batch / Expiry Tracking | Not supported | Barcode-scanned goods receipt, expiry recorded, 6-month advance alert |
-
----
-
-## Business Outcomes
-
-- Supported successful ERP deployment across all 7 branches.
-- Standardized key business processes across Finance, Inventory, Sales, Purchasing, CRM, HR, and POS.
-- Improved operational visibility across branches and improved alignment between business and IT.
-- Company-wide enforcement of credit limits, stock reservation, and negative-stock prevention, control mechanisms that did not exist in the prior system.
-- Transaction processing and barcode pick accuracy improved after go-live, based on day-to-day observation. They were not measured in a formal post-implementation audit.
-
----
-
-## Skills Demonstrated
-
-- ERP Implementation Coordination
-- Business Requirements Documentation (BRD) and Functional Requirements authoring
-- Business Rules Design (credit control, stock reservation, approval governance)
-- UAT Coordination and Defect Management
-- Master Data Migration Coordination
-- Go-Live Support and Hypercare Coordination
-- End-User Training
-- Operational Readiness (post-Go-Live process stabilization and department handoff)
-- Vendor Coordination
-- Cross-functional Stakeholder Management (Sales, Finance, Warehouse, Executive Management)
-
----
+This project was part 2 of the company's ERP work. The ERP later became the source of truth for stock and prices on the [B2B E-commerce platform](https://github.com/omaralburiki/B2B-E-commerce-Implementation).
