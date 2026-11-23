@@ -11,7 +11,7 @@
 |---|---|
 | Document Title | Business Requirements Document, Multi-Branch ERP Implementation |
 | Prepared By | Omar Ahmed Al-Buriki, ERP Business Analyst |
-| Company | Mohd. Saeed Balbid Company |
+| Organization | Multi-branch FMCG retailer and wholesaler, Saudi Arabia |
 | Project Duration | Jun 2020 to Aug 2021 |
 | Related Prior Engagement | [Inventory Gap Analysis & ERP Readiness](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness) |
 | Document Status | Representative version (see note above) |
@@ -139,7 +139,7 @@ No structured business rules existed at any of the 7 branches prior to this proj
 | FR-03 | On draft order creation, the system shall place a time-bound soft reservation on the requested stock, releasing it automatically at expiry or on manual release by a supervisor with a mandatory reason code and immutable log entry | BR-03 |
 | FR-04 | On warehouse pick confirmation via barcode scan, the system shall deduct the picked quantity from available stock in real time | BR-04 |
 | FR-05 | On any transaction that would result in negative available stock, the system shall reject the transaction unless overridden by CFO-level approval, with the override logged and timestamped | BR-05 |
-| FR-06 | On a return request, the system shall require the original invoice, validate the 14-day return window, and route approval based on amount: cashier plus supervisor for amounts up to 1,000 SAR, branch manager for amounts from 1,001 to 10,000 SAR | BR-06 |
+| FR-06 | On a return request, the system shall require the original invoice, validate the 14-day return window, and route approval based on amount: cashier plus supervisor for the lower amount tier, branch manager for the higher amount tier | BR-06 |
 | FR-07 | On return processing, the system shall classify returned stock as sellable (returned to warehouse) or damaged (flagged to a separate location), and issue a refund via the original payment method | BR-06 |
 | FR-08 | On order entry, the system shall apply the correct price list based on the branch's classification as wholesale, supermarket, or mini-market | BR-07 |
 | FR-09 | The system shall maintain separate central and branch-level inventory records with tracked inter-branch transfers | BR-08 |
@@ -198,8 +198,8 @@ The order lifecycle confirmed as actually implemented in the new ERP follows thi
 | Credit limit override | Finance Manager | Mandatory logged reason |
 | Reservation release beyond auto-expiry | Supervisor | Mandatory reason code, immutable log |
 | Negative-stock override | CFO | Logged and timestamped |
-| Return, up to 1,000 SAR | Cashier plus Supervisor | Immutable log |
-| Return, 1,001 to 10,000 SAR | Branch Manager | Immutable log |
+| Return, lower amount tier | Cashier plus Supervisor | Immutable log |
+| Return, higher amount tier | Branch Manager | Immutable log |
 
 Order approval is enforced through these system checks rather than a manual sign-off chain.
 
