@@ -1,91 +1,47 @@
 # Multi-Branch ERP Implementation
 
-Business-side coordination and delivery of a full ERP transformation across 7 branches, including the design of company-wide order, inventory, and credit control business rules.
+Replacing a 7-branch distributor's legacy system with a full ERP, and designing the order, stock, and credit rules the old system never had.
 
----
+**Mohd. Saeed Balbid Company · Jun 2020 – Aug 2021 · Role: ERP Business Analyst**
 
-## Overview
+## Why the system had to change
 
-Business-side coordination and delivery of a full ERP transformation across 7 branches, replacing a custom in-house system that functioned only as an invoicing recorder with no operational control logic. The implementation covered 7 functional modules, 150+ users, and included the design and enforcement of company-wide order, inventory, and credit control rules that did not exist in the prior system.
+The company's in-house system recorded invoices and not much else. It did not reserve stock, stop negative stock, enforce credit limits, or keep an audit trail of approvals. The [gap analysis](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness) done before this project had already shown what that was costing the business, so the decision was to replace the system rather than patch it.
 
----
+Scope: 7 branches, 150+ users, 7 modules (Finance, Inventory, Sales, Purchasing, CRM, HR, POS), and more than 10,000 SKUs migrated.
 
-## Business Context
+## My role
 
-The organization operated a custom, in-house ERP across 7 branches that had never been designed for operational control. It recorded invoices but did not enforce stock deduction, reservation, credit limits, or approval governance. This gap had already been quantified and diagnosed in a preceding Inventory Gap Analysis engagement, which established the business case for replacing the system entirely.
+I was the main business analyst on the business side of the rollout. I gathered requirements from Sales, Finance, Warehouse, and Executive Management, wrote the BRD and functional requirements, and designed the business rules together with the people who would work under them. The ERP solution provider configured the system against the BRD.
 
----
+I ran UAT against each rule, trained users, coordinated master data migration, supported go-live in all 7 branches, and provided on-site hypercare. Approval for overrides and for go-live stayed with Finance and management.
 
-## Problem Statement
+## The rules
 
-The prior system's absence of operational control created 6 confirmed failure conditions: no real-time inventory synchronization, no stock reservation logic, no negative-stock prevention, no credit limit enforcement, no approval governance with audit trail, and no reliable financial reporting.
+| Rule | What the system does | Who can override |
+|---|---|---|
+| Hard stock block | Stops an order when the quantity exceeds available stock and shows what is available | Nobody |
+| Credit limit check | Blocks the order when the customer's balance is over the approved limit | Finance Manager, with a logged reason |
+| Soft stock reservation | Holds stock against a draft order for a set period, then releases it | Supervisor, with a reason code |
+| Deduction at pick | Deducts stock only when the warehouse confirms the pick by barcode scan | Nobody |
+| Negative-stock prevention | Rejects any transaction that would take stock below zero | CFO, logged and timestamped |
+| Returns approval | Original invoice and a 14-day window required; approval depends on the amount | Supervisor up to 1,000 SAR, branch manager from 1,001 to 10,000 SAR |
 
----
+None of these existed in the old system, and every override is logged.
 
-## Objectives
+## After go-live
 
-- Replace the legacy system with a fully integrated ERP covering finance, inventory, sales, purchasing, HR, CRM, and POS.
-- Eliminate phantom inventory and enforce real-time stock accuracy.
-- Stop negative-stock selling and enforce credit limits automatically.
-- Digitize the wholesale order fulfillment journey.
-- Establish structured procurement and returns governance with a full audit trail.
+Go-live was not smooth. Orders with 100+ lines were slow to enter, users made mistakes while they learned the system, and work piled up at the handoffs between sales, cashier, and warehouse. During stabilization I enforced the Sales, Cashier, Warehouse flow as the only path for an order and made barcode scanning mandatory at picking, with the system rejecting the wrong item or quantity. Once things settled, day-to-day ownership of inventory control and finance alignment moved to those departments, and my role became monitoring and coordination.
 
----
+## Outcome
 
-## Scope
+The ERP went live in all 7 branches, and credit limits, stock reservation, and negative-stock prevention were enforced company-wide for the first time. Transaction processing and barcode pick accuracy improved after go-live, based on day-to-day observation. They were not measured in a formal post-implementation audit.
 
-- 7 branches, 150+ users.
-- 7 ERP functional modules: Finance, Inventory, Sales, Purchasing, CRM, HR, POS.
-- 10,000+ SKUs migrated.
-- Company-wide order, inventory, and credit control business rules.
+## Related projects
 
----
+This is phase 2 of the company's ERP work. Phase 1, the [Inventory Gap Analysis & ERP Readiness](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness), built the business case. This ERP later became the source of truth for stock and prices on the [B2B E-commerce platform](https://github.com/omaralburiki/B2B-E-commerce-Implementation).
 
-## My Role
+## Documents
 
-**Business Systems Analyst** (Jun 2020 – Aug 2021). Served as the primary Business Systems Analyst supporting the business-side implementation of the ERP across 7 branches, coordinating business analysis activities, implementation readiness, stakeholder collaboration, and operational process standardization from requirements through stabilization.
-
----
-
-## Key Deliverables
-
-- Business Requirements Document (BRD) and Functional Requirements
-- Business Rules & Order Lifecycle Specification (credit control, stock reservation, negative-stock prevention, returns governance)
-- UAT Scenarios
-- Go-Live Plan
-
----
-
-## Business Impact
-
-- Supported successful ERP deployment across all 7 branches.
-- Standardized key business processes across Finance, Inventory, Sales, Purchasing, CRM, HR, and POS.
-- Company-wide enforcement of credit limits, stock reservation, and negative-stock prevention, control mechanisms that did not exist in the prior system.
-- Improved operational visibility across branches and improved alignment between business and IT.
-
----
-
-## Skills Demonstrated
-
-ERP Implementation Coordination · Business Requirements Documentation (BRD) · Business Rules Design · UAT Coordination and Defect Management · Master Data Migration Coordination · Go-Live Support and Hypercare Coordination · Operational Readiness · Vendor Coordination · Cross-Functional Stakeholder Management
-
----
-
-## Repository Structure
-
-```
-README.md
-docs/Project-Dossier.md
-images/
-diagrams/
-```
-
----
-
-## Full Documentation
-
-The complete project dossier, including the 6 implementation phases, detailed business rules, order lifecycle logic, UAT findings, and evidence mapping, is available at:
-
-
-**https://github.com/omaralburiki/Multi-Branch-ERP-Implementation/blob/main/docs/Project-Dossier.md**
-
+- [Project Dossier](docs/Project-Dossier.md): the 6 implementation phases, order lifecycle, UAT findings, and diagrams.
+- [BRD](docs/BRD.md): business and functional requirements, rule specifications, and the approval matrix. This is a representative version; the original belongs to the company.
