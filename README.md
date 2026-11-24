@@ -12,9 +12,9 @@ Scope: 7 branches, 150+ users, 7 modules (Finance, Inventory, Sales, Purchasing,
 
 ## My role
 
-I was the main business analyst on the business side of the rollout. I gathered requirements from Sales, Finance, Warehouse, and Executive Management, wrote the BRD and functional requirements, and designed the business rules together with the people who would work under them. The ERP solution provider configured the system against the BRD.
+I worked on the business side of the rollout from requirements through stabilization, and shared the business-side project management with a colleague. Together we ran the meetings with the ERP provider and the internal departments, tracked risks, issues, and delays, verified deliverables, and were responsible for getting the system ready for go-live.
 
-I ran UAT against each rule, trained users, coordinated master data migration, supported go-live in all 7 branches, and provided on-site hypercare. Approval for overrides and for go-live stayed with Finance and management.
+I gathered requirements from Sales, Finance, Warehouse, and Executive Management, wrote the BRD and functional requirements, and designed the business rules together with the people who would work under them. The ERP solution provider configured the system against the BRD. I ran UAT against each rule, trained users, coordinated master data migration, supported go-live in all 7 branches, and provided on-site hypercare.
 
 ## The rules
 
@@ -35,7 +35,7 @@ Go-live was not smooth. Orders with 100+ lines were slow to enter, users made mi
 
 ## Outcome
 
-The ERP went live in all 7 branches, and credit limits, stock reservation, and negative-stock prevention were enforced company-wide for the first time. Transaction processing and barcode pick accuracy improved after go-live, based on day-to-day observation. They were not measured in a formal post-implementation audit.
+The ERP went live in all 7 branches, and credit limits, stock reservation, and negative-stock prevention were enforced company-wide for the first time.
 
 ## Related projects
 
@@ -43,5 +43,5 @@ This is part 2 of the company's ERP work. Part 1, the [Inventory Gap Analysis & 
 
 ## Documents
 
-- [Full case study](docs/Project-Dossier.md): the 6 implementation phases, order lifecycle, UAT findings, and diagrams.
+- [Full case study](docs/Case-Study.md): the implementation lifecycle, order lifecycle, UAT findings, and diagrams.
 - [BRD](docs/BRD.md): business and functional requirements, rule specifications, and the approval matrix. This is a representative version; the original belongs to the company.

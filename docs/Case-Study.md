@@ -14,7 +14,30 @@ The scope covered 7 branches, 150+ users, 7 modules, the migration of more than 
 
 ## My role
 
-I was the main business analyst on the business side of the rollout, from requirements through stabilization. I gathered requirements, wrote the BRD and functional requirements, designed the business rules, ran UAT against each rule, trained users, coordinated master data migration, supported go-live, and provided on-site hypercare. The ERP solution provider configured the system. Approval for overrides and for go-live stayed with Finance and management.
+I worked on the business side of the rollout from requirements through stabilization, and shared the business-side project management with a colleague. Together we ran the meetings with the ERP provider and the internal departments, tracked risks, issues, and delays, verified deliverables, and were responsible for getting the system ready for go-live.
+
+Within that, I gathered requirements, wrote the BRD and functional requirements, designed the business rules, ran UAT against each rule, trained users, coordinated master data migration, supported go-live, and provided on-site hypercare. The ERP solution provider configured the system.
+
+```mermaid
+flowchart TB
+    subgraph R1[" "]
+        direction LR
+        P1["<b>1. Requirements and design</b><br/>BRD and functional requirements"]
+        P2["<b>2. Configuration</b><br/>business rules built by the provider"]
+        P3["<b>3. Testing</b><br/>UAT against each rule"]
+        P1 --> P2 --> P3
+    end
+    subgraph R2[" "]
+        direction LR
+        P4["<b>4. Go-live</b><br/>10,000+ SKUs migrated, 7 branches"]
+        P5["<b>5. Stabilization</b><br/>single order flow, barcode control"]
+        P6["<b>6. Handover</b><br/>departments own the process"]
+        P4 --> P5 --> P6
+    end
+    P3 --> P4
+    style R1 fill:none,stroke:none
+    style R2 fill:none,stroke:none
+```
 
 ## Phase 1: Requirements and design
 
@@ -108,38 +131,8 @@ Once things were stable, day-to-day ownership of inventory control and of financ
 | Finance and operational alignment | Coordinated by me | Finance Department |
 | Cross-department monitoring | Not applicable | Me (ongoing) |
 
-```mermaid
-flowchart LR
-    P1[Phase 1: Requirements and Design] --> P2[Phase 2: Configuration and Build]
-    P2 --> P3[Phase 3: Testing]
-    P3 --> P4[Phase 4: Go-Live]
-    P4 --> P5[Phase 5: Stabilization]
-    P5 --> P6[Phase 6: Handover to Departments]
-```
-
-## How the modules connect
-
-```mermaid
-flowchart LR
-    Sales[Sales Module] --> Inventory[Inventory Module]
-    Sales --> CRM[CRM - Credit and Customer Data]
-    Inventory --> Finance[Finance Module]
-    Sales --> Finance
-    Finance --> Reporting[Operational Visibility]
-```
-
-```mermaid
-flowchart TD
-    Center((ERP Implementation))
-    Center --- S[Sales]
-    Center --- F[Finance]
-    Center --- W[Warehouse]
-    Center --- EM[Executive Management]
-    Center --- V[ERP Solution Provider]
-```
-
 ## Outcome
 
-The ERP went live in all 7 branches, with the same processes across finance, inventory, sales, purchasing, CRM, HR, and POS. Credit limits, stock reservation, and negative-stock prevention were enforced company-wide for the first time. Transaction processing and barcode pick accuracy improved after go-live, based on day-to-day observation; they were not measured in a formal post-implementation audit.
+The ERP went live in all 7 branches, with the same processes across finance, inventory, sales, purchasing, CRM, HR, and POS. Credit limits, stock reservation, and negative-stock prevention were enforced company-wide for the first time.
 
 This project was part 2 of the company's ERP work. The ERP later became the source of truth for stock and prices on the [B2B E-commerce platform](https://github.com/omaralburiki/B2B-E-commerce-Implementation).

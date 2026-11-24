@@ -10,7 +10,7 @@
 | Field | Value |
 |---|---|
 | Document Title | Business Requirements Document, Multi-Branch ERP Implementation |
-| Prepared By | Omar Ahmed Al-Buriki, ERP Business Analyst |
+| Prepared By | Omar Ahmed Omar Alburiki, ERP Business Analyst |
 | Organization | Multi-branch FMCG retailer and wholesaler, Saudi Arabia |
 | Project Duration | Jun 2020 to Aug 2021 |
 | Related Prior Engagement | [Inventory Gap Analysis & ERP Readiness](https://github.com/omaralburiki/Inventory-Gap-Analysis-ERP-Readiness) |
@@ -235,4 +235,4 @@ Defects identified during UAT were tracked through a ticketing system, combined 
 
 ## 15. Document Governance
 
-Requirements in this document were gathered and verified directly with the stakeholders listed in Section 5, then finalized for technical handoff to the ERP solution provider. This was based on direct stakeholder verification, not a formal signature-based approval gate. Final acceptance of delivered functionality was confirmed through the UAT process described in Section 14, with defects tracked and resolved before go-live.
+Requirements in this document were gathered and verified directly with the stakeholders listed in Section 5, then finalized for technical handoff to the ERP solution provider. Final acceptance of delivered functionality was confirmed through the UAT process described in Section 14, with defects tracked and resolved before go-live.
