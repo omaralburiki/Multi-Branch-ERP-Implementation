@@ -34,7 +34,7 @@ flowchart TB
         P6["<b>6. Handover</b><br/>departments own the process"]
         P4 --> P5 --> P6
     end
-    P3 --> P4
+    R1 --> R2
     style R1 fill:none,stroke:none
     style R2 fill:none,stroke:none
 ```
